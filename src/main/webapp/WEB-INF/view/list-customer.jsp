@@ -21,7 +21,7 @@
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Email/th>
+                    <th>Email</th>
                 </tr>
 
                 <c:forEach var="tempCustomer" items="${customers}">

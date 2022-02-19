@@ -27,4 +27,9 @@ public class CustomerController {
 
         return "list-customer";
     }
+
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd(Model theModel) {
+        return "customer-form";
+    }
 }

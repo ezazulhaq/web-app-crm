@@ -19,4 +19,9 @@ public class CustomerDAOImpl implements CustomerDAO {
         return customerRepository.findAll();
     }
 
+    @Override
+    public void saveCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
+
 }

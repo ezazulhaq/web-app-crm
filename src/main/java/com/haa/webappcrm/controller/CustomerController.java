@@ -2,7 +2,6 @@ package com.haa.webappcrm.controller;
 
 import java.util.List;
 
-import com.haa.webappcrm.dao.CustomerDAO;
 import com.haa.webappcrm.entity.Customer;
 import com.haa.webappcrm.service.CustomerService;
 

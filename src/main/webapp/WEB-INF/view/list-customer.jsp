@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link type="text/css" rel="stylesheet" href="/css/style.css">
 
 </head>
+
 <body>
     <div id="wrapper">
         <div id="header">
@@ -20,6 +22,10 @@
 
     <div id="container">
         <div id="content">
+
+            <input type="button" value="Add Customer" class="add-button"
+                onclick="window.location.href='showFormForAdd'; return false;" />
+
             <table>
                 <tr>
                     <th>First Name</th>
@@ -44,4 +50,5 @@
         </div>
     </div>
 </body>
+
 </html>

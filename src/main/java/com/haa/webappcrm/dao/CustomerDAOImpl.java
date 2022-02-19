@@ -2,8 +2,6 @@ package com.haa.webappcrm.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import com.haa.webappcrm.entity.Customer;
 import com.haa.webappcrm.repository.CustomerRepository;
 
@@ -14,10 +12,9 @@ import org.springframework.stereotype.Repository;
 public class CustomerDAOImpl implements CustomerDAO {
 
     @Autowired
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
         return customerRepository.findAll();
     }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.haa.webappcrm.dao.CustomerDAO;
 import com.haa.webappcrm.entity.Customer;
+import com.haa.webappcrm.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomerController {
 
     @Autowired
-    CustomerDAO customerDAO;
+    private CustomerService customerService;
 
     @GetMapping("/list")
     public String listCustomer(Model theModel) {
 
-        List<Customer> theCustomers = customerDAO.getCustomers();
+        List<Customer> theCustomers = customerService.getCustomers();
 
         theModel.addAttribute("customers", theCustomers);
 

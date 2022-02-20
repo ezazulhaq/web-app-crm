@@ -39,4 +39,20 @@ public class CustomerDAOImpl implements CustomerDAO {
         customerRepository.deleteById(custId);
     }
 
+    @Override
+    public List<Customer> searchCustomers(String searchName) {
+        if (searchName != null && searchName.length() > 0)
+            return customerRepository.findAll() // .searchByName(searchName.toLowerCase());
+                    .stream()
+                    .filter(i -> i.getFirstName().toLowerCase().indexOf(searchName) > -1
+                            || i.getLastName().toLowerCase().indexOf(searchName) > -1)
+                    .sorted((i, j) -> i.getLastName().compareTo(j.getLastName()))
+                    .collect(Collectors.toList());
+        else
+            return customerRepository.findAll()
+                    .stream()
+                    .sorted((i, j) -> i.getLastName().compareTo(j.getLastName()))
+                    .collect(Collectors.toList());
+    }
+
 }

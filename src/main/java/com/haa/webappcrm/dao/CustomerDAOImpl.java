@@ -1,6 +1,7 @@
 package com.haa.webappcrm.dao;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.haa.webappcrm.entity.Customer;
 import com.haa.webappcrm.repository.CustomerRepository;
@@ -16,7 +17,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> getCustomers() {
-        return customerRepository.findAll();
+        return customerRepository.findAll()
+                .stream()
+                .sorted((i, j) -> i.getLastName().compareTo(j.getLastName()))
+                .collect(Collectors.toList());
     }
 
     @Override

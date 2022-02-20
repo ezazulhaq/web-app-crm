@@ -34,4 +34,9 @@ public class CustomerDAOImpl implements CustomerDAO {
         return customerRepository.findById(custId);
     }
 
+    @Override
+    public void deleteCustomer(int custId) {
+        customerRepository.deleteById(custId);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.haa.webappcrm.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -27,6 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void saveCustomer(Customer customer) {
         customerDAO.saveCustomer(customer);
+    }
+
+    @Override
+    @Transactional
+    public Optional<Customer> getCustomer(int custId) {
+        return customerDAO.getCustomer(custId);
     }
 
 }

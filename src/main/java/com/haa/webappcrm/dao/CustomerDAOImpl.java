@@ -1,6 +1,7 @@
 package com.haa.webappcrm.dao;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.haa.webappcrm.entity.Customer;
@@ -26,6 +27,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public void saveCustomer(Customer customer) {
         customerRepository.save(customer);
+    }
+
+    @Override
+    public Optional<Customer> getCustomer(int custId) {
+        return customerRepository.findById(custId);
     }
 
 }

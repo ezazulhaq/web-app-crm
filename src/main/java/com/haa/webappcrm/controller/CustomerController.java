@@ -1,6 +1,7 @@
 package com.haa.webappcrm.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.haa.webappcrm.entity.Customer;
 import com.haa.webappcrm.service.CustomerService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/customer")
@@ -44,5 +46,16 @@ public class CustomerController {
     public String saveCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.saveCustomer(customer);
         return "redirect:/customer/list";
+    }
+
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("customerId") int custId, Model theModel) {
+
+        Optional<Customer> theCustomer = customerService.getCustomer(custId);
+
+        if (theCustomer.isPresent())
+            theModel.addAttribute("customer", theCustomer.get());
+
+        return "customer-form";
     }
 }
